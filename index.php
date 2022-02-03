@@ -1,4 +1,5 @@
 <?php
+include 'config/database.php';
 $queryPage = filter_input(INPUT_GET, 'action', FILTER_SANITIZE_ENCODED);
 $RoutePath = '';
 $routes = [
@@ -17,6 +18,6 @@ if (isset($routes[$queryPage])){
     $RoutePath = 'pages/404.php';
 }
 
-require 'ressources/views/layouts/header.php';
-require $RoutePath;
-require 'ressources/views/layouts/footer.php';
+include 'ressources/views/layouts/header.php';
+include $RoutePath;
+include 'ressources/views/layouts/footer.php';
