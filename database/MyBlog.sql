@@ -101,3 +101,8 @@ INSERT INTO `is_Categorised` (`Categories_ID`, `Articles_ID`) VALUES
 (4,	3);
 
 -- 2022-02-03 08:01:03
+SELECT Articles.Title, Articles.Cont, Authors.Pseudo
+FROM Articles
+         INNER JOIN Authors ON Articles.Authors_ID = Authors.ID
+ORDER BY Articles.ID DESC
+LIMIT 10;
