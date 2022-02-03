@@ -1,3 +1,4 @@
 <?php
 require 'app/persistences/blogPostData.php';
-var_dump(lastBlogPosts($dbh));
+$lastArticles =lastBlogPosts($dbh);
+include 'ressources/views/home.tpl.php';
