@@ -15,3 +15,11 @@ function blogPostById($dbh, $articleId){
     $SQLRequest->execute();
     return $SQLRequest->fetch(PDO::FETCH_ASSOC);
 }
+
+function commentsByBlogPost($dbh, $articleId){
+    $query = file_get_contents('database/commentsByBlogPost.sql');
+    $SQLRequest = $dbh->prepare($query);
+    $SQLRequest->bindValue(1, $articleId, PDO::PARAM_INT);
+    $SQLRequest->execute();
+    return $SQLRequest->fetchall(PDO::FETCH_ASSOC);
+}
