@@ -1,4 +1,6 @@
 <?php
 require 'app/persistences/blogPostData.php';
-
-require 'ressources/views/blogPost.tpl.php';
+if (isset($queryPage['id'])) {
+    $articleQuery = blogPostById($dbh, $queryPage['id']);
+    require 'ressources/views/blogPost.tpl.php';
+}

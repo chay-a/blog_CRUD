@@ -1,1 +1,3 @@
-<h1>Working</h1>
+<h1><?= $articleQuery['Title'] ?></h1>
+<p><?= $articleQuery['Cont']?></p>
+<p><?= $articleQuery['Pseudo']?></p>

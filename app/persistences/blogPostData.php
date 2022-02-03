@@ -7,3 +7,11 @@ function lastBlogPosts($dbh) {
     $last10Articles = $SQLRequest->fetchall(PDO::FETCH_ASSOC);
     return $last10Articles;
 }
+
+function blogPostById($dbh, $articleId){
+    $query = file_get_contents('database/blogPostById.sql');
+    $SQLRequest = $dbh->prepare($query);
+    $SQLRequest->bindValue(1, $articleId, PDO::PARAM_INT);
+    $SQLRequest->execute();
+    return $SQLRequest->fetch(PDO::FETCH_ASSOC);
+}
