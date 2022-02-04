@@ -1,3 +1,5 @@
+<?php
+include 'ressources/views/header.tpl.php'; ?>
 <form method="post" action="http://blog.local/index.php?action=blogPostCreate">
     <div>
         <label for="title">Titre</label>
@@ -45,3 +47,6 @@
         <input type="submit" id="submit" name="submit" value="créer">
     </div>
 </form>
+<?php
+include 'ressources/views/footer.tpl.php';
+?>
