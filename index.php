@@ -11,15 +11,19 @@ $routes = [
     'blogPost' => ['app/controllers/blogPostController.php', 'Hobbies', 'Découvrez les hobbies d\'Auriane Chay'],
     'blogPostModify' => ['pages/contact.php','Contact', 'Contactez Auriane Chay pour bénéficier de ses compétences.'],
 ];
-
-if (isset($routes[$queryPage['action']])){
-    $metaTitle = $routes[$queryPage['action']][1];
-    $metaDescription = $routes[$queryPage['action']][2];
-    $RoutePath = $routes[$queryPage['action']][0];
+if (isset($queryPage['action'])){
+    if (isset($routes[$queryPage['action']])){
+        //$metaTitle = $routes[$queryPage['action']][1];
+        //$metaDescription = $routes[$queryPage['action']][2];
+        $RoutePath = $routes[$queryPage['action']][0];
+    } else {
+        //$metaTitle = 'Page non trouvée';
+        //$metaDescription = 'Désoléee, page non trouvée';
+        $RoutePath = 'pages/404.php';
+        echo 'wrong';
+    }
 } else {
-    $metaTitle = 'Page non trouvée';
-    $metaDescription = 'Désoléee, page non trouvée';
-    $RoutePath = 'pages/404.php';
+    $RoutePath = $routes[$queryPage][0];
 }
 
 include $RoutePath;
