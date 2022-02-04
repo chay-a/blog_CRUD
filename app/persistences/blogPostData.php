@@ -23,3 +23,10 @@ function commentsByBlogPost($dbh, $articleId){
     $SQLRequest->execute();
     return $SQLRequest->fetchall(PDO::FETCH_ASSOC);
 }
+function authorIdByAuthorPseudo($dbh, $authorPseudo){
+    $query = file_get_contents('database/authorsIdByAuthorsPseudo.sql');
+    $SQLRequest = $dbh->prepare($query);
+    $SQLRequest->bindValue(1, $authorPseudo);
+    $SQLRequest->execute();
+    return $SQLRequest->fetch(PDO::FETCH_ASSOC);
+}

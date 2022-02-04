@@ -1,0 +1,1 @@
+Select Authors.ID FROM Authors WHERE Authors.Pseudo = ?;
