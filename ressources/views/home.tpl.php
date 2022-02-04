@@ -1,10 +1,10 @@
 <?php
 include 'ressources/views/header.tpl.php';
         if (!empty($lastArticles)) :
-            foreach($lastArticles as $key => $value):?>
-<h1><?= $value["Title"]?></h1>
-            <p><?= $value["Cont"]?></p>
-            <p><?= $value["Pseudo"]?></p>
+            foreach($lastArticles as $article):?>
+            <h1><?= $article["Title"]?></h1>
+            <p><?= $article["Cont"]?></p>
+            <p><?= $article["Pseudo"]?></p>
     <?php endforeach;?>
         <?php else :?>
         <h1>Il n'y a pas de post</h1>
