@@ -9,8 +9,9 @@ $RoutePath = '';
 $routes = [
     NULL => ['app/controllers/homeController.php', 'Accueil', 'CV en ligne de Auriane Chay avec ses compétences'],
     'blogPost' => ['app/controllers/blogPostController.php', 'Hobbies', 'Découvrez les hobbies d\'Auriane Chay'],
-    'blogPostModify' => ['pages/contact.php','Contact', 'Contactez Auriane Chay pour bénéficier de ses compétences.'],
-    'blogPostCreate' => ['app/controllers/blogPostCreateController.php', '', '']
+    'blogPostModify' => ['app/controllers/blogPostModifyController.php','Contact', 'Contactez Auriane Chay pour bénéficier de ses compétences.'],
+    'blogPostCreate' => ['app/controllers/blogPostCreateController.php', '', ''],
+    'authorCreate' => ['app/controllers/authorCreateController.php', '','']
 ];
 if (isset($queryPage['action'])){
     if (isset($routes[$queryPage['action']])){
