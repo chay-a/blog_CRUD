@@ -12,13 +12,13 @@ include 'ressources/views/header.tpl.php'; ?>
                 <p class="card-text"><?= $articleQuery['Cont'] ?></p>
                 <h6 class="card-subtitle text-muted"><?= $articleQuery['Pseudo'] ?></h6>
             </div>
-            <div class="card-footer text-muted"><p>1 days ago</p></div>
+            <div class="card-footer text-muted"><p><?= $articleQuery['DateStart']?></p></div>
         </div>
     </div>
 <div class="container">
     <?php foreach ($articleCommentsQuery as $value): ?>
     <div class="row card">
-        <p class="card-header">Date</p>
+        <p class="card-header"><?= $value['Date'] ?></p>
     </div>
     <div class="card-body">
         <blockquote class="blockquote">
