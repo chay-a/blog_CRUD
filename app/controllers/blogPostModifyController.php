@@ -82,7 +82,6 @@ if (isset($queryId)) {
             $authorId = (int) $authorIdSring['ID'];
             blogPostModify($dbh, $queryId, $inputsSanitized['title'], $inputsSanitized['content'], $inputsSanitized['startDate'], $inputsSanitized['endDate'], $inputsSanitized['rank'], $authorId);
         }
-
     }
     $blogPostInfo = blogPostById($dbh, $queryId);
     require 'ressources/views/blogPostModify.tpl.php';

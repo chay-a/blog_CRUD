@@ -4,8 +4,8 @@ function lastBlogPosts($dbh) {
     $SQLRequest = $dbh->prepare($query);
     $SQLRequest->bindValue(1, 10, PDO::PARAM_INT);
     $SQLRequest->execute();
-    $last10Articles = $SQLRequest->fetchall(PDO::FETCH_ASSOC);
-    return $last10Articles;
+    $lastArticles = $SQLRequest->fetchall(PDO::FETCH_ASSOC);
+    return $lastArticles;
 }
 
 function blogPostById($dbh, $articleId){
@@ -51,7 +51,7 @@ function blogPostModify($dbh, $articleId, $articleTitle, $articleContent, $artic
     $SQLRequest->bindValue(':endDate', $articleEndDate);
     $SQLRequest->bindValue(':rank', $articleRank, PDO::PARAM_INT);
     $SQLRequest->bindValue(':authorId', $authorId, PDO::PARAM_INT);
-    $SQLRequest->bindValue('articleID', $articleId);
+    $SQLRequest->bindValue(':articleID', $articleId);
     $SQLRequest->execute();
 }
 
@@ -82,4 +82,5 @@ function blogPostDelete($dbh, $articleId){
     $SQLRequest = $dbh->prepare($query);
     $SQLRequest->bindValue(1, $articleId);
     $SQLRequest->execute();
+    return $SQLRequest->fetch(PDO::FETCH_ASSOC);
 }
