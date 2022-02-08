@@ -28,7 +28,7 @@ function authorIdByAuthorPseudo($dbh, $authorPseudo){
     $SQLRequest = $dbh->prepare($query);
     $SQLRequest->bindValue(1, $authorPseudo);
     $SQLRequest->execute();
-    return $SQLRequest->fetch(PDO::FETCH_ASSOC); //tableau ['ID] => string
+    return $SQLRequest->fetch(PDO::FETCH_ASSOC); //tableau ['ID'] => string
 }
 function blogPostCreate($dbh, $articleTitle, $articleContent, $articleStartDate, $articleEndDate, $articleRank, $authorId) {
     $query = file_get_contents('database/blogPostCreate.sql');
@@ -40,4 +40,18 @@ function blogPostCreate($dbh, $articleTitle, $articleContent, $articleStartDate,
     $SQLRequest->bindValue(':rank', $articleRank, PDO::PARAM_INT);
     $SQLRequest->bindValue(':authorId', $authorId, PDO::PARAM_INT);
     $SQLRequest->execute();
+}
+
+function blogPostModify($dbh, $articleId, $articleTitle, $articleContent, $articleStartDate, $articleEndDate, $articleRank, $authorId){
+    $query = file_get_contents('database/blogPostModify.sql');
+    $SQLRequest = $dbh->prepare($query);
+    $SQLRequest->bindValue(':title', $articleTitle);
+    $SQLRequest->bindValue(':content', $articleContent);
+    $SQLRequest->bindValue(':startDate', $articleStartDate);
+    $SQLRequest->bindValue(':endDate', $articleEndDate);
+    $SQLRequest->bindValue(':rank', $articleRank, PDO::PARAM_INT);
+    $SQLRequest->bindValue(':authorId', $authorId, PDO::PARAM_INT);
+    $SQLRequest->bindValue(1, $articleId);
+    $SQLRequest->execute();
+    return $SQLRequest->fetch(PDO::FETCH_ASSOC);
 }
