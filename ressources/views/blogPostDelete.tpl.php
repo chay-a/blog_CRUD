@@ -6,7 +6,7 @@ require 'ressources/views/header.tpl.php';
         <input type="submit" name="submit" value="supprimer" class="btn btn-danger">
         <?php
         if (isset($submit)):?>
-            <a href="index.php" class="btn btn-primary">Retour à la page d'accueil</a>
+            <a href="/" class="btn btn-primary">Retour à la page d'accueil</a>
         <?php endif;?>
     </form>
 <?php

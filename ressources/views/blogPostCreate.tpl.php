@@ -2,7 +2,7 @@
 include 'ressources/views/header.tpl.php'; ?>
     <div class="container">
         <div class="row justify-content-center">
-            <form method="post" action="http://blog.local/index.php?action=blogPostCreate" class="col-3">
+            <form method="post" action="index.php?action=blogPostCreate" class="col-3">
                 <div>
                     <label for="title" class="form-label">Titre</label>
                     <input type="text" name="title" id="title" class="form-control"
