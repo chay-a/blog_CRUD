@@ -6,7 +6,7 @@ include 'ressources/views/header.tpl.php'; ?>
         l'article</a>
     <div class="container">
         <div class="row card text-center">
-            <p class="card-header">Catégories</p>
+            <p class="card-header"><?php foreach ($categories as $Name): $printCategories .= $Name['Name'] . ', ';  endforeach; echo $printCategories;?></p>
             <div class="card-body">
                 <h1 class="card-title"><?= $articleQuery['Title'] ?></h1>
                 <p class="card-text"><?= $articleQuery['Cont'] ?></p>

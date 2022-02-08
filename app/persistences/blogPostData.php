@@ -84,3 +84,8 @@ function blogPostDelete($dbh, $articleId){
     $SQLRequest->execute();
     return $SQLRequest->fetch(PDO::FETCH_ASSOC);
 }
+
+function blogPostCategoriesName($dbh, $articleId){
+    $SQLRequest = $dbh->query("SELECT Categories.Name FROM is_Categorised INNER JOIN Categories ON is_Categorised.Categories_ID = Categories.ID WHERE Articles_ID = $articleId;");
+    return $SQLRequest->fetchall();
+}
