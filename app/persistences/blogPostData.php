@@ -51,7 +51,35 @@ function blogPostModify($dbh, $articleId, $articleTitle, $articleContent, $artic
     $SQLRequest->bindValue(':endDate', $articleEndDate);
     $SQLRequest->bindValue(':rank', $articleRank, PDO::PARAM_INT);
     $SQLRequest->bindValue(':authorId', $authorId, PDO::PARAM_INT);
+    $SQLRequest->bindValue('articleID', $articleId);
+    $SQLRequest->execute();
+}
+
+function categoriesByBlogPostId ($dbh, $articleId){
+    $query = file_get_contents('database/categoriesByBlogPostId.sql');
+    $SQLRequest = $dbh->prepare($query);
     $SQLRequest->bindValue(1, $articleId);
     $SQLRequest->execute();
-    return $SQLRequest->fetch(PDO::FETCH_ASSOC);
+    return $SQLRequest->fetchall(PDO::FETCH_ASSOC);
+}
+
+function blogPostCategoriesDelete($dbh, $articleId){
+    $query = file_get_contents('database/blogPostCategoriesDelete.sql');
+    $SQLRequest = $dbh->prepare($query);
+    $SQLRequest->bindValue(1, $articleId);
+    $SQLRequest->execute();
+}
+
+function commentsDeleteByArticleId($dbh, $articleId){
+    $query = file_get_contents('database/commentsDeleteByArticle.sql');
+    $SQLRequest = $dbh->prepare($query);
+    $SQLRequest->bindValue(1, $articleId);
+    $SQLRequest->execute();
+}
+
+function blogPostDelete($dbh, $articleId){
+    $query = file_get_contents('database/blogPostDelete.sql');
+    $SQLRequest = $dbh->prepare($query);
+    $SQLRequest->bindValue(1, $articleId);
+    $SQLRequest->execute();
 }

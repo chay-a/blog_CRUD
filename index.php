@@ -7,6 +7,7 @@ $routes = [
     'blogPost' => ['app/controllers/blogPostController.php', 'Hobbies', 'Découvrez les hobbies d\'Auriane Chay'],
     'blogPostModify' => ['app/controllers/blogPostModifyController.php','Contact', 'Contactez Auriane Chay pour bénéficier de ses compétences.'],
     'blogPostCreate' => ['app/controllers/blogPostCreateController.php', '', ''],
+    'blogPostDelete' => ['app/controllers/blogPostDeleteController.php', '', ''],
     'authorCreate' => ['app/controllers/authorCreateController.php', '','']
 ];
 if (isset($queryPage['action'])){
