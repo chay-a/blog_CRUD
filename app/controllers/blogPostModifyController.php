@@ -3,7 +3,6 @@ require 'app/persistences/blogPostData.php';
 require 'app/persistences/InputFilter.php';
 $queryId = filter_input(INPUT_GET, 'id', FILTER_SANITIZE_ENCODED);
 if (isset($queryId)) {
-    $blogPostInfo = blogPostById($dbh, $queryId);
     $submit = filter_input(INPUT_POST, 'submit', FILTER_SANITIZE_STRING);
     $msgError = [
         'title' => '',
@@ -83,6 +82,8 @@ if (isset($queryId)) {
             $authorId = (int) $authorIdSring['ID'];
             blogPostModify($dbh, $queryId, $inputsSanitized['title'], $inputsSanitized['content'], $inputsSanitized['startDate'], $inputsSanitized['endDate'], $inputsSanitized['rank'], $authorId);
         }
+
     }
+    $blogPostInfo = blogPostById($dbh, $queryId);
     require 'ressources/views/blogPostModify.tpl.php';
 }
