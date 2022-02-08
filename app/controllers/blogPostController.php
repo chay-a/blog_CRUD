@@ -1,7 +1,8 @@
 <?php
 require 'app/persistences/blogPostData.php';
-if (isset($queryPage['id'])) {
-    $articleQuery = blogPostById($dbh, $queryPage['id']);
-    $articleCommentsQuery = commentsByBlogPost($dbh, $queryPage['id']);
+$queryId = filter_input(INPUT_GET, 'id', FILTER_SANITIZE_ENCODED);
+if (isset($queryId)) {
+    $articleQuery = blogPostById($dbh, $queryId);
+    $articleCommentsQuery = commentsByBlogPost($dbh, $queryId);
     require 'ressources/views/blogPost.tpl.php';
 }

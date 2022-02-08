@@ -1,10 +1,6 @@
 <?php
 include 'config/database.php';
-$options = [
-    'action' =>FILTER_SANITIZE_ENCODED,
-    'id' =>FILTER_SANITIZE_ENCODED
-];
-$queryPage = filter_input_array(INPUT_GET,$options);
+$queryPage = filter_input(INPUT_GET, 'action', FILTER_SANITIZE_ENCODED);
 $RoutePath = '';
 $routes = [
     NULL => ['app/controllers/homeController.php', 'Accueil', 'CV en ligne de Auriane Chay avec ses compétences'],
