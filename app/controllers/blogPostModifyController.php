@@ -84,5 +84,7 @@ if (isset($queryId)) {
         }
     }
     $blogPostInfo = blogPostById($dbh, $queryId);
+    $metaTitle = "Modification" . $blogPostInfo['Title'];
+    $metaDescription = "Modification d'un article";
     require 'ressources/views/blogPostModify.tpl.php';
 }

@@ -1,6 +1,8 @@
 <?php
 require 'app/persistences/authorData.php';
 require 'app/persistences/InputFilter.php';
+$metaTitle = 'Ajout d\'auteur';
+$metaDescription = "Ajout d'un auteur à la base de données";
 $submit = filter_input(INPUT_POST, 'submit', FILTER_SANITIZE_STRING);
 $msgError = [
     'name' => '',

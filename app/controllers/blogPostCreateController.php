@@ -1,6 +1,8 @@
 <?php
 require 'app/persistences/blogPostData.php';
 require 'app/persistences/InputFilter.php';
+$metaTitle = "Création d'un article";
+$metaDescription = "Création d'un article pour la base de données";
 $submit = filter_input(INPUT_POST, 'submit', FILTER_SANITIZE_STRING);
 $msgError = [
     'title' => '',
