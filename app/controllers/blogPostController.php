@@ -5,6 +5,7 @@ if (isset($queryId)) {
     $articleQuery = blogPostById($dbh, $queryId);
     $categories = blogPostCategoriesName($dbh, $queryId);
     $articleCommentsQuery = commentsByBlogPost($dbh, $queryId);
+    require 'app/controllers/commentCreateController.php';
     $metaTitle = $articleQuery['Title'];
     $metaDescription = $articleQuery['Cont'];
     $printCategories = '';
