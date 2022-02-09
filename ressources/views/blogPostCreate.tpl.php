@@ -1,5 +1,6 @@
 <?php
 include 'ressources/views/header.tpl.php'; ?>
+    <a href="/" class="link-primary">Retour à l'accueil</a>
     <div class="container">
         <div class="row justify-content-center">
             <form method="post" action="index.php?action=blogPostCreate" class="col-3">
@@ -16,7 +17,7 @@ include 'ressources/views/header.tpl.php'; ?>
                     <textarea name="content" id="content" rows="5"
                               class="form-control"><?php if (isset($submit)): echo $inputsValidate['content']; endif; ?></textarea>
                     <?php if (empty($inputsSanitized['content']) || $inputsSanitized['content'] === false) : ?>
-                        <p  class="text-danger"><?= $msgError['content'] ?></p>
+                        <p class="text-danger"><?= $msgError['content'] ?></p>
                     <?php endif; ?>
                 </div>
                 <div>

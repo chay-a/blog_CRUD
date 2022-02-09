@@ -1,9 +1,11 @@
 <?php
 include 'ressources/views/header.tpl.php'; ?>
+    <a href="/" class="link-primary">Retour à l'accueil</a>
     <a href="index.php?action=blogPostModify&id=<?= $articleQuery['ID'] ?>" class="btn btn-primary">Modifier
         l'article</a>
     <a href="index.php?action=blogPostDelete&id=<?= $articleQuery['ID'] ?>" class="btn btn-danger">Supprimer
         l'article</a>
+
     <div class="container">
         <div class="row card text-center">
             <p class="card-header"><?php foreach ($categories as $Name): $printCategories .= $Name['Name'] . ', ';  endforeach; echo $printCategories;?></p>

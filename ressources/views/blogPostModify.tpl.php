@@ -1,12 +1,13 @@
 <?php
 include 'ressources/views/header.tpl.php'; ?>
+    <a href="/" class="link-primary">Retour à l'accueil</a>
     <div class="container">
         <div class="row justify-content-center">
-            <form method="post" action="index.php?action=blogPostModify&id=<?=$queryId?>" class="col-3">
+            <form method="post" action="index.php?action=blogPostModify&id=<?= $queryId ?>" class="col-3">
                 <div>
                     <label for="title" class="form-label">Titre</label>
                     <input type="text" name="title" id="title" class="form-control"
-                          value="<?= $blogPostInfo['Title'] ?>">
+                           value="<?= $blogPostInfo['Title'] ?>">
                     <?php if (empty($inputsSanitized['title']) || $inputsSanitized['title'] === false) : ?>
                         <p class="text-danger"><?= $msgError['title'] ?></p>
                     <?php endif; ?>
@@ -14,9 +15,9 @@ include 'ressources/views/header.tpl.php'; ?>
                 <div>
                     <label for="content" class="form-label">Contenu</label>
                     <textarea name="content" id="content" rows="5"
-                              class="form-control"><?= $blogPostInfo['Cont']?></textarea>
+                              class="form-control"><?= $blogPostInfo['Cont'] ?></textarea>
                     <?php if (empty($inputsSanitized['content']) || $inputsSanitized['content'] === false) : ?>
-                        <p  class="text-danger"><?= $msgError['content'] ?></p>
+                        <p class="text-danger"><?= $msgError['content'] ?></p>
                     <?php endif; ?>
                 </div>
                 <div>
