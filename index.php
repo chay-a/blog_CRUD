@@ -8,7 +8,8 @@ $routes = [
     'blogPostModify' => 'app/controllers/blogPostModifyController.php',
     'blogPostCreate' => 'app/controllers/blogPostCreateController.php',
     'blogPostDelete' => 'app/controllers/blogPostDeleteController.php',
-    'authorCreate' => 'app/controllers/authorCreateController.php'
+    'authorCreate' => 'app/controllers/authorCreateController.php',
+    'blogPostCategory' => 'app/controllers/blogPostCategoryController.php'
 ];
 if (isset($routes[$queryAction])) {
     $RoutePath = $routes[$queryAction];

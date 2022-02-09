@@ -89,3 +89,8 @@ function blogPostCategoriesName($dbh, $articleId){
     $SQLRequest = $dbh->query("SELECT Categories.Name FROM is_Categorised INNER JOIN Categories ON is_Categorised.Categories_ID = Categories.ID WHERE Articles_ID = $articleId;");
     return $SQLRequest->fetchall();
 }
+
+function blogPostByCategory($dbh, $categoryName){
+    $SQLRequest = $dbh->query("SELECT Articles.Title, Articles.ID FROM is_Categorised INNER JOIN Articles ON is_Categorised.Articles_ID = Articles.ID INNER JOIN Categories ON is_Categorised.Categories_ID = Categories.ID WHERE Categories.Name = '$categoryName'");
+    return $SQLRequest->fetchall();
+}
